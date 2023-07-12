@@ -40,7 +40,6 @@ A P L S I I G
 Y   I   R
 
 */
-
 func convert(s string, numRows int) string {
 	if len(s) <= numRows || numRows <= 1 {
 		return s
@@ -96,6 +95,7 @@ func convert_use_strings_Builder(s string, numRows int) string {
 	return zigzag.String()
 }
 
+// 判断是否是回文字符串
 func longestPalindrome(s string) string {
 	max := 1
 	from, to := 0, 0
