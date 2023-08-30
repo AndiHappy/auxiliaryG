@@ -84,3 +84,7 @@ __debug_bin
 ######################
 .sass-cache/*
 node_modules/
+/vcs.xml
+/leetcode/statistics.xml
+/misc.xml
+/modules.xml
