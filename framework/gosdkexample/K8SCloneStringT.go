@@ -2,6 +2,7 @@ package gosdkexample
 
 import "unsafe"
 
+// K8sCloneString 主要使用的是unsafe的Pointer的方法
 type K8sCloneString struct {
 }
 
