@@ -1,4 +1,4 @@
-package main
+package httpandparse
 
 import (
 	"fmt"
@@ -6,15 +6,15 @@ import (
 	"net/http"
 )
 
-func main() {
+func TestHttpGet() {
 	httpC := &http.Client{}
 	res, err := httpC.Get("https://www.yousuu.com/bookstore/?channel")
 	if err != nil {
-		fmt.Errorf("QueryAlarmConfig http request error-(%s)", err.Error())
+		fmt.Printf("QueryAlarmConfig http request error-(%s)", err)
 	}
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
-		fmt.Errorf("QueryAlarmConfig read error-(%s)", err.Error())
+		fmt.Printf("QueryAlarmConfig read error-(%s)", err)
 	}
 	defer res.Body.Close()
 

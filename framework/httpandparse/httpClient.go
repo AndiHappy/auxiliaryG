@@ -1,19 +1,20 @@
-package main
+package httpandparse
 
 import (
 	"fmt"
+	"io/fs"
+	"log"
+	"os"
+	"path/filepath"
+
 	"github.com/PuerkitoBio/goquery"
 	"github.com/antchfx/htmlquery"
 	"github.com/imroc/req/v3"
 	"github.com/liuzl/gocc"
 	"golang.org/x/net/html"
-	"io/fs"
-	"log"
-	"os"
-	"path/filepath"
 )
 
-func main() {
+func TestHttpClient() {
 
 	t2s, err := gocc.New("t2s")
 	if err != nil {
@@ -43,7 +44,7 @@ func main() {
 	// 解析为Node
 	doc, err := html.Parse(resp.Body)
 	if err != nil {
-		fmt.Println("html.Parse(resp.Body) err: %v", err)
+		fmt.Printf("html.Parse(resp.Body) err: %+v", err)
 	}
 	//xpath选择
 	//list, err := htmlquery.QueryAll(doc, "//*[@id=\"chapter-list\"]/*")
@@ -65,6 +66,9 @@ func main() {
 					//selector 的语法
 					rnodes := rdoc.Find("#sticky-parent > div.chapter-detail.style-left > div.content").Text()
 					simpleContent, err := t2s.Convert(rnodes)
+					if err != nil {
+						fmt.Printf("t2s.Convert(resp.Body) err: %+v", err)
+					}
 					c := fmt.Sprintf("\n%s\n", simpleContent)
 					writeToFile(c)
 				}
@@ -92,5 +96,5 @@ func writeToFile(c string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Wrote %d bytes.\n", bytesWritten)
+	fmt.Println("Wrote %+V bytes.\n", bytesWritten)
 }
