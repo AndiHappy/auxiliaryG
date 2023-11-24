@@ -1,0 +1,16 @@
+goos: darwin
+goarch: amd64
+pkg: auxiliary/framework/goMedium
+cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+BenchmarkMemoryStack-12    	257367638	         4.499 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	269963438	         4.578 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	265248068	         4.449 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	270399489	         5.315 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	263429912	         4.442 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	262730037	         4.750 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	265347640	         4.526 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	269535060	         4.615 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	261565288	         4.442 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMemoryStack-12    	237761036	         4.569 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	auxiliary/framework/goMedium	18.332s

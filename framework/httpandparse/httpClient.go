@@ -14,7 +14,14 @@ import (
 	"golang.org/x/net/html"
 )
 
-func TestHttpClient() {
+type LoadConfig struct {
+}
+
+func Load() {
+	TestHttpClient("https://www.ibiquges.org/92/92872/")
+}
+
+func TestHttpClient(url string) {
 
 	t2s, err := gocc.New("t2s")
 	if err != nil {
@@ -31,10 +38,9 @@ func TestHttpClient() {
 		"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
 	}
 	request.SetHeaders(headerMap)
-	var httpUrl = "https://czbooks.net/n/ckn276"
 
 	// Get
-	resp, err := request.Get(httpUrl)
+	resp, err := request.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}

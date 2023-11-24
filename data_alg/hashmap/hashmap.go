@@ -1,13 +1,9 @@
 package hashmap
 
-import "fmt"
-
 func twoSum(nums []int, target int, args ...interface{}) []int {
-	fmt.Printf("dd:%+v", args)
 	if nums == nil || len(nums) < 2 {
 		return []int{}
 	}
-
 	i2v := make(map[int]int, len(nums))
 	for i, v := range nums {
 		aTarget := target - v
