@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"os"
 	"sync"
@@ -38,4 +39,35 @@ func Log(w io.Writer, key, val string) {
 
 func Test_Pool(t *testing.T) {
 	Log(os.Stdout, "path", "/search?q=flowers")
+}
+
+type Test struct {
+	A int
+}
+
+func Test_Pool_2(t *testing.T) {
+	pool := sync.Pool{
+		New: func() interface{} {
+			return &Test{
+				A: 1,
+			}
+		},
+	}
+	fmt.Println("Test_Pool_2")
+	pool.Put(&Test{A: 2})
+	pool.Put(&Test{A: 1})
+	pool.Put(&Test{A: 3})
+	for i := 0; i < 10; i++ {
+		go func() {
+			testObject := pool.Get().(*Test)
+			fmt.Println(testObject.A)
+			pool.Put(testObject)
+		}()
+	}
+	time.Sleep(time.Second * 1)
+	fmt.Println("----------------------------")
+	for i := 0; i < 10; i++ {
+		testObject := pool.Get().(*Test)
+		fmt.Println(testObject.A)
+	}
 }
