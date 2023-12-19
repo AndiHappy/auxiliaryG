@@ -8,16 +8,19 @@ import (
 
 func Test_addTwoNumbers(t *testing.T) {
 	l1 := ListNode{
-		Val:  2,
-		Next: &ListNode{3, &ListNode{4, nil}},
+		Val:  9,
+		Next: &ListNode{9, &ListNode{9, nil}},
 	}
 	l2 := ListNode{
-		Val:  4,
-		Next: &ListNode{5, &ListNode{6, nil}},
+		Val:  9,
+		Next: &ListNode{9, nil},
 	}
 
 	l3 := addTwoNumbers(&l1, &l2)
 	fmt.Println(l3)
+
+	l4 := addTwoNumbers1(&l1,&l2
+	fmt.Println(l4)
 }
 
 /**
@@ -37,7 +40,39 @@ func (p *ListNode) String() string {
 	}
 }
 
+var carry = 0
+
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	if l1 == nil && l2 == nil && carry == 0 {
+		return nil
+	}
+
+	v1, v2 := 0, 0
+	l1Next, l2Next := &ListNode{}, &ListNode{}
+	if l1 == nil {
+		v1 = 0
+		l1Next = nil
+	} else {
+		v1 = l1.Val
+		l1Next = l1.Next
+	}
+
+	if l2 == nil {
+		v2 = 0
+		l2Next = nil
+	} else {
+		v2 = l2.Val
+		l2Next = l2.Next
+	}
+
+	val := (v1 + v2 + carry) % 10
+	carry = (v1 + v2 + carry) / 10
+	next := addTwoNumbers(l1Next, l2Next)
+	return &ListNode{Val: val, Next: next}
+}
+
+// addTwoNumers return a list
+func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
 	dump := &ListNode{}
 	result := dump
 	carry := 0
