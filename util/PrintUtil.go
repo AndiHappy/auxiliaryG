@@ -6,8 +6,14 @@ import (
 	"unsafe"
 )
 
+func PrintSlice[T Element](s []T) {
+	fmt.Printf("type: %s, kind: %s, len: %v, cap:%v,add:%p,value: %v\n",
+		reflect.TypeOf(s), reflect.TypeOf(s).Kind(), len(s), cap(s), &s[0], s)
+}
+
 func PrintPara(p any) {
-	fmt.Printf("type is %s, kind is %s, point add:%p \n", reflect.TypeOf(p), reflect.TypeOf(p).Kind(), &p)
+	fmt.Printf("type is %s, kind is %s, len is %v, cap is %v,value is %v, point add:%p \n",
+		reflect.TypeOf(p), reflect.TypeOf(p).Kind(), p, &p)
 }
 
 // PrintSliceMember 打印 Slice 的成员变量
