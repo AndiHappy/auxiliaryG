@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -26,6 +27,6 @@ func worker() error {
 
 	return err
 }
-func main() {
+func TestStackoverflow_chan(t *testing.T) {
 	worker()
 }

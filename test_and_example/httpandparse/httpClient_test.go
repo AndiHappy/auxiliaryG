@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"testing"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/antchfx/htmlquery"
@@ -17,12 +18,8 @@ import (
 type LoadConfig struct {
 }
 
-func Load() {
-	TestHttpClient("https://www.ibiquges.org/92/92872/")
-}
-
-func TestHttpClient(url string) {
-
+func TestHttpClient(t *testing.T) {
+	url := "https://www.ibiquges.org/92/92872/"
 	t2s, err := gocc.New("t2s")
 	if err != nil {
 		log.Fatal(err)

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"testing"
 )
 
 // read file line by line
@@ -12,7 +13,7 @@ import (
 // Use bufio.NewScanner() function to create the file scanner.
 // Use bufio.ScanLines() function with the scanner to split the file into lines.
 // Then use the scanner Scan() function in a for loop to get each line and process it.
-func main() {
+func TestSrtDeal(t *testing.T) {
 
 	filePath := "./storeConfigFile/_video_id_plsjCyVNZVg.srt"
 	readFile, err := os.Open(filePath)

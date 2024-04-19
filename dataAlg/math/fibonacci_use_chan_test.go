@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func fib(n int, ch chan<- int) {
 	x, y := 0, 1
@@ -10,7 +13,7 @@ func fib(n int, ch chan<- int) {
 	}
 	close(ch)
 }
-func main() {
+func TestFib(t *testing.T) {
 	ch := make(chan int) // create a buffered channel with a capacity of 10
 	go fib(10, ch)       // generate the first 10 Fibonacci numbers in a separate goroutine
 	// read values from the channel until it's closed

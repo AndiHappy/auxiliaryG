@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -101,7 +102,7 @@ func UseChanReplaceWaitGroupControlFlow() {
 	fmt.Println("运行结束")
 }
 
-func main() {
+func TestChanExampleWaitGroup(t *testing.T) {
 	//UseWaitGroupControlFlow()
 	UseChanReplaceWaitGroupControlFlow()
 }

@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"strconv"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -59,7 +60,8 @@ func diningProblem(p PH) {
 	dining.Done()
 	fmt.Println(phName, "Left the table")
 }
-func main() {
+
+func TestDiningPhilosophers(t *testing.T) {
 	fmt.Println("begin")
 	dining.Add(5) // 等待模拟5个人吃饭，思考的协程结束
 

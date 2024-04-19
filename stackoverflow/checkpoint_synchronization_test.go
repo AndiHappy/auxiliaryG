@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"math/rand"
+	"testing"
 	"time"
 )
 
@@ -18,7 +19,7 @@ var (
 	nAssemblies = 3
 )
 
-func main() {
+func TestCheckpoint_synchronization(t *testing.T) {
 	for c := 1; c <= nAssemblies; c++ {
 		log.Println("begin assembly cycle", c)
 		wg.Add(len(partList))

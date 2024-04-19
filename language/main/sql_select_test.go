@@ -1,13 +1,14 @@
-package main
+package m1
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
+	"testing"
 	"time"
 )
 
-func main() {
+func Test3(t *testing.T) {
 	// Open a connection to the database
 	db, _ := sql.Open("driverName", "dataSourceName")
 

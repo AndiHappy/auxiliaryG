@@ -1,8 +1,11 @@
 package gotutorial
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestVarExample(t *testing.T) {
 	var a *int
 	*a = 100 // panic: runtime error: invalid memory address or nil pointer dereference
 	fmt.Println(*a)

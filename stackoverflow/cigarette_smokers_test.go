@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -85,7 +86,7 @@ const LIMIT = 1
 
 var wgCs *sync.WaitGroup
 
-func main() {
+func TestCigaretteSmokers(t *testing.T) {
 	wgCs = new(sync.WaitGroup)
 	table := new(Table)
 	table.match = make(chan int, LIMIT)

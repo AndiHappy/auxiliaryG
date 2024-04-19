@@ -21,7 +21,7 @@ func (receiver *ListNode) String() string {
 	return rS
 }
 
-func addtwonumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	carry := 0
 	head := &ListNode{}
 	tmp := head
@@ -58,6 +58,6 @@ func main() {
 	fmt.Println(l1)
 	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}
 	fmt.Println(l2)
-	l3 := addtwonumbers2(l1, l2)
+	l3 := addTwoNumbers(l1, l2)
 	fmt.Println(l3)
 }

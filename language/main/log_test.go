@@ -1,8 +1,9 @@
-package main
+package m1
 
 import (
 	"log"
 	"net/smtp"
+	"testing"
 )
 
 func init() {
@@ -10,7 +11,7 @@ func init() {
 	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
 	log.Println("init started")
 }
-func Test1() {
+func Test1(t *testing.T) {
 	// Println writes to the standard logger.
 	log.Println("main started")
 	// Fatalln is Println() followed by a call to os.Exit(1)
@@ -20,7 +21,7 @@ func Test1() {
 }
 
 // Program in GO language with real world example of logging.
-func main() {
+func Test2(t *testing.T) {
 	// Connect to the remote SMTP server.
 	client, err := smtp.Dial("smtp.smail.com:25")
 	if err != nil {

@@ -106,7 +106,7 @@ func temperature(t float64) (rs string) {
 	return rs
 }
 
-func main1() {
+func TestDeferFunction2(t *testing.T) {
 	returnAndDefer()
 	// defer 和 return之间的顺序是先返回值, i=0，后defer
 	// 执行顺序为return语句->defer2->defer1->返回值。defer2先于defer1执行

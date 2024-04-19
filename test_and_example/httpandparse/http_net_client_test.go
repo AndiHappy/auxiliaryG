@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"testing"
 )
 
-func TestHttpGet() {
+func TestHttpGet(t *testing.T) {
 	httpC := &http.Client{}
 	res, err := httpC.Get("https://www.yousuu.com/bookstore/?channel")
 	if err != nil {

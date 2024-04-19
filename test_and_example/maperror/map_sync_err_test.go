@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
-func main() {
+func TestMapMuxTest(t *testing.T) {
 	MapMuxTest()
 }
 

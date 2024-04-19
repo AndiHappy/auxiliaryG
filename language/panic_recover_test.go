@@ -4,13 +4,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"testing"
 )
 
 type Config struct {
 	SecretKey string `json:"secret_key"`
 }
 
-func main2() {
+func TestPanicRecover(t *testing.T) {
 	defer func() {
 		if r := recover(); r != nil {
 			fmt.Printf("An error occurred: %v\n", r)

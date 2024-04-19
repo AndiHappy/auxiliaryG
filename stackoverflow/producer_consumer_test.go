@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"testing"
 )
 
 type Consumer struct {
@@ -43,7 +44,7 @@ func (p *Producer) produce(max int) {
 	*p.done <- true // signal when done
 	fmt.Println("produce: Done")
 }
-func main() {
+func TestProducerConsumer(t *testing.T) {
 	var msgs = make(chan int)  // channel to send messages
 	var done = make(chan bool) // channel to control when production is done
 	// Start a goroutine for Produce.produce

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -122,7 +123,7 @@ func customer(c *Customer, b *Barber, wr chan<- *Customer, wakers chan<- *Custom
 	b.Unlock()
 }
 
-func main() {
+func TestSleeping_barber(t *testing.T) {
 	//理发师，worker
 	b := NewBarber()
 	b.name = "Rocky"
