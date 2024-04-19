@@ -23,4 +23,6 @@ func TestStruct(t *testing.T) {
 			},
 		},
 	}
+
+	FP(p)
 }

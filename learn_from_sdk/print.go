@@ -71,7 +71,10 @@ func (r AnyStructMethod) printArg(arg any, verb int32) {
 			}
 		}
 		r.printValue(f, verb, 0)
+	case any:
+		print(f)
 	default:
+
 		// If the type is not simple, it might have methods.
 		if !r.handleMethods(verb) {
 			// Need to use reflection, since the type had no
@@ -93,8 +96,4 @@ func (r AnyStructMethod) printValue(f reflect.Value, verb int32, i int) {
 func FP(a ...any) {
 	anyObject := AnyStructMethod{}
 	anyObject.DoPrintln(a) // a 从 ...any 到 []any
-}
-
-func main() {
-	FP()
 }
