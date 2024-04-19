@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 type number int
 
@@ -11,7 +14,7 @@ func (n *number) pprint() {
 	fmt.Println("pprint:", *n)
 }
 
-func main() {
+func TestI3(*testing.T) {
 	var n number
 	defer n.print()               //第一个 defer 语句，对 n 直接求值，开始的时候 n=0，所以最后是 0。
 	defer n.pprint()              //第二个 defer 语句，n 是引用，最终求值是 3;

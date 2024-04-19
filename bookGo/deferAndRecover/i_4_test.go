@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestI4(*testing.T) {
 	defer func() {
 		fmt.Println("before return")
 	}()

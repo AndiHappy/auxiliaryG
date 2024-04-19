@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"testing"
 )
 
 func e1() {
@@ -28,7 +29,7 @@ func e3() {
 	return
 }
 
-func main() {
+func TestI6(*testing.T) {
 	e1() //nil
 	e2() //defer2 error
 	e3() //nil

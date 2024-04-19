@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"testing"
 	"time"
 )
 
-func main() {
+func TestI8(t *testing.T) {
 	defer fmt.Println("defer main")
 	var user = os.Getenv("USER_")
 	go func() {

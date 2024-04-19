@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-// 正常调用
-func main() {
+// TestI10 正常调用
+func TestI10(t *testing.T) {
 	defer h1()
 	panic(404)
 }

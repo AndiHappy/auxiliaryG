@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"testing"
 )
 
 var arrP = []int{1}
 
-func main() {
-	myfunc1(arrP)     // 0,2
+func TestArray1(t *testing.T) {
+	myfunc1(arrP)
 	fmt.Println(arrP) //1
 	arrP = append(arrP, 3)
 	arrP = append(arrP, 4)
@@ -18,7 +19,7 @@ func main() {
 func myfunc1(arr []int) {
 	arr = append(arr, 2)
 	arr[0] = 0
-	fmt.Println(arr)
+	fmt.Println(arr) //0,2
 	return
 }
 

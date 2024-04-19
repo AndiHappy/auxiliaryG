@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -18,7 +19,8 @@ func startGlobalPanicCapturing() {
 		}
 	}()
 }
-func main() {
+
+func TestI11(*testing.T) {
 	startGlobalPanicCapturing()
 	// 产生恐慌，但该恐慌会被捕获
 	Go(func() {

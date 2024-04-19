@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func Accumulator() func(int) int {
 	var x int
@@ -11,7 +14,7 @@ func Accumulator() func(int) int {
 	}
 }
 
-func main() {
+func TestI7(t *testing.T) {
 	var a = Accumulator()
 	fmt.Printf("%d\n", a(1))
 	fmt.Printf("%d\n", a(10))

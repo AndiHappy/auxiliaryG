@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"testing"
 	"time"
 )
 
@@ -25,7 +26,7 @@ func recover1(user string) {
 	}()
 }
 
-func main() {
+func TestI9(t *testing.T) {
 	defer fmt.Println("defer main")
 	var user = os.Getenv("USER_")
 	recover1(user)

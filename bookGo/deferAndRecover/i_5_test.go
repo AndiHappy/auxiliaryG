@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 func f() (r int) {
 	t := 1
@@ -24,7 +27,7 @@ func f3() (r int) {
 	return 1
 }
 
-func main() {
+func TestI5(*testing.T) {
 	fmt.Println(f())
 	fmt.Println(f2())
 	fmt.Println(f3())

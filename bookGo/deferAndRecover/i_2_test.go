@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestI2(*testing.T) {
 	var whatever [3]struct{}
 	for i := range whatever {
 		defer func() {
