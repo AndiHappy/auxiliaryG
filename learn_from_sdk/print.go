@@ -74,15 +74,8 @@ func (r AnyStructMethod) printArg(arg any, verb int32) {
 	case any:
 		print(f)
 	default:
-
-		// If the type is not simple, it might have methods.
-		if !r.handleMethods(verb) {
-			// Need to use reflection, since the type had no
-			// interface methods that could be used for formatting.
-			r.printValue(reflect.ValueOf(f), verb, 0)
-		}
+		r.printValue(reflect.ValueOf(f), verb, 0)
 	}
-
 }
 
 func (r AnyStructMethod) handleMethods(verb int32) bool {
