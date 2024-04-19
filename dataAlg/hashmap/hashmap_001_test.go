@@ -1,8 +1,13 @@
 package hashmap
 
+import (
+	"fmt"
+	"testing"
+)
+
 // twoSum hashmap time space
 // ##leetcode001
-func twoSum(nums []int, target int, args ...interface{}) []int {
+func twoSum(nums []int, target int) []int {
 	if nums == nil || len(nums) < 2 {
 		return []int{}
 	}
@@ -15,4 +20,8 @@ func twoSum(nums []int, target int, args ...interface{}) []int {
 		i2v[v] = i
 	}
 	return []int{}
+}
+
+func TestHashMap001(t *testing.T) {
+	fmt.Println(twoSum([]int{1, 2, 3, 4, 5, 6}, 7))
 }

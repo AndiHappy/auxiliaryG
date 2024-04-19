@@ -1,8 +1,9 @@
-package linkedlist
+package linkedlist002
 
 import (
 	"fmt"
 	"strconv"
+	"testing"
 )
 
 type ListNode struct {
@@ -21,7 +22,7 @@ func (receiver *ListNode) String() string {
 	return rS
 }
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
 	carry := 0
 	head := &ListNode{}
 	tmp := head
@@ -53,11 +54,11 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return head.Next
 }
 
-func main() {
+func TestLinkedList002(t *testing.T) {
 	l1 := &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: nil}}}}
 	fmt.Println(l1)
 	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 7, Next: &ListNode{Val: 8, Next: nil}}}}
 	fmt.Println(l2)
-	l3 := addTwoNumbers(l1, l2)
+	l3 := addTwoNumbers2(l1, l2)
 	fmt.Println(l3)
 }
