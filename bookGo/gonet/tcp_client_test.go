@@ -5,9 +5,10 @@ import (
 	"io"
 	"net"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestTcpClient(t *testing.T) {
 	conn, err := net.Dial(ConnType, ConnHost+":"+ConnPort)
 	if err != nil {
 		fmt.Println(err)

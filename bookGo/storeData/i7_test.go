@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
+	"testing"
 	"time"
 )
 
 // chan作为接口生产者和消费者之间的媒介
-func main() {
+func TestTimei7(t *testing.T) {
 	taskCh := make(chan int, 100)
 	go worker(taskCh)
 	// 阻塞任务

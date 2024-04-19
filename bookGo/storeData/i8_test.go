@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"testing"
 	"time"
 )
 
 var token = make(chan int, 3)
 
 // chan 作为控制并发的goroutine的数目
-func main() {
+func TestControli8(t *testing.T) {
 	work := make([]func(int), 10)
 	for i := 0; i < 10; i++ {
 		work[i] = func(i int) {

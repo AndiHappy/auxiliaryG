@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -17,7 +18,7 @@ func worker6() {
 }
 
 // chan 作为执行定时执行周期性任务
-func main() {
+func TestGofunctioni6(t *testing.T) {
 	go worker6()
 	select {}
 }

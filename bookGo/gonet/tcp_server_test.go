@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"testing"
 )
 
 const (
@@ -14,7 +15,7 @@ const (
 	ConnType = "tcp"
 )
 
-func main() {
+func TestTcpServer(t *testing.T) {
 	l, err := net.Listen(ConnType, ConnHost+":"+ConnPort)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())

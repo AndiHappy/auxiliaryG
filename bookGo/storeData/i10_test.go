@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"testing"
 	"time"
 )
 
@@ -72,7 +73,7 @@ func chanTest4() {
 	}()
 }
 
-func main() {
+func TestControlInFunctioni10(t *testing.T) {
 	//chanTest2()
 	//chanTest3()
 	chanTest4()

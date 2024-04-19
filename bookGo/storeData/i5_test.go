@@ -1,9 +1,13 @@
 package main
 
-import "strconv"
+import (
+	"strconv"
+	"testing"
+)
 
 // 查看map的源码
-func main() {
+func Testmapi5(t *testing.T) {
+
 	m := make(map[string]int, 500)
 	for i := 0; i < 300; i++ {
 		key := strconv.Itoa(i) + "_key"

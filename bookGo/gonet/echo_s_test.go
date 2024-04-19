@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"testing"
 )
 
 func readNotBlocked(r io.Reader) ([]byte, error) {
@@ -48,7 +49,7 @@ func handleListen(ln net.Listener) {
 	}
 }
 
-func main() {
+func TestServer(t *testing.T) {
 	ln, err := net.Listen("tcp", "localhost:9988")
 	if err != nil {
 		log.Fatal(err)

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"testing"
 )
 
 const readAnyBufSize = 4096
@@ -90,7 +91,7 @@ func serve(ln net.Listener) {
 	}
 }
 
-func main() {
+func TestEchoServer(t *testing.T) {
 	var (
 		address  = flag.String("addr", ":9989", "listen/dial address")
 		isServer = flag.Bool("serve", true, "is this a client or server?")
