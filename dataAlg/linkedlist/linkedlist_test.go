@@ -29,6 +29,8 @@ func Test_addTwoNumbers(t *testing.T) {
 
 var carry = 0
 
+// addTwoNumbers
+// leetcode002
 func addTwoNumbers(l1 *u.ListNode, l2 *u.ListNode) *u.ListNode {
 	if l1 == nil && l2 == nil && carry == 0 {
 		return nil
