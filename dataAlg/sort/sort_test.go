@@ -30,6 +30,8 @@ func TestFindMedianSortedArrays(t *testing.T) {
 
 }
 
+// findMedianSortedArrays
+// leetcode004
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	m := len(nums1)
 	n := len(nums2)
