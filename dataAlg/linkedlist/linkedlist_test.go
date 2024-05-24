@@ -35,29 +35,39 @@ func addTwoNumbers(l1 *u.ListNode, l2 *u.ListNode) *u.ListNode {
 	if l1 == nil && l2 == nil && carry == 0 {
 		return nil
 	}
-
-	v1, v2 := 0, 0
-	l1Next, l2Next := &u.ListNode{}, &u.ListNode{}
-	if l1 == nil {
-		v1 = 0
-		l1Next = nil
-	} else {
-		v1 = l1.Val
-		l1Next = l1.Next
-	}
-
-	if l2 == nil {
-		v2 = 0
-		l2Next = nil
-	} else {
-		v2 = l2.Val
-		l2Next = l2.Next
-	}
-
-	val := (v1 + v2 + carry) % 10
-	carry = (v1 + v2 + carry) / 10
-	next := addTwoNumbers(l1Next, l2Next)
+	val := (JudgeValue(l1) + JudgeValue(l2) + carry) % 10
+	carry = (JudgeValue(l1) + JudgeValue(l2) + carry) / 10
+	next := addTwoNumbers(NextNode(l1), NextNode(l2))
 	return &u.ListNode{Val: val, Next: next}
+}
+
+// addTwoNumbers3
+// leetcode002
+func addTwoNumbers3(l1 *u.ListNode, l2 *u.ListNode) *u.ListNode {
+	if l1 == nil && l2 == nil && carry == 0 {
+		return nil
+	}
+
+	val := (JudgeValue(l1) + JudgeValue(l2) + carry) % 10
+	carry = (JudgeValue(l1) + JudgeValue(l2) + carry) / 10
+	next := addTwoNumbers(NextNode(l1), NextNode(l2))
+	return &u.ListNode{Val: val, Next: next}
+}
+
+func NextNode(l *u.ListNode) *u.ListNode {
+	if l == nil {
+		return nil
+	} else {
+		return l.Next
+	}
+}
+
+func JudgeValue(l *u.ListNode) int {
+	if l == nil {
+		return 0
+	} else {
+		return l.Val
+	}
 }
 
 // addTwoNumers return a list

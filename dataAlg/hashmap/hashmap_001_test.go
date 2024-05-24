@@ -22,6 +22,23 @@ func twoSum(nums []int, target int) []int {
 	return []int{}
 }
 
+// brute force
+func twoSum_bruteforce(nums []int, target int) []int {
+	if nums == nil || len(nums) < 2 {
+		return []int{}
+	}
+
+	for i, v := range nums {
+		//此次的循环是一个可以优化的内容
+		for j, v2 := range nums {
+			if v+v2 == target {
+				return []int{i, j}
+			}
+		}
+	}
+	return []int{}
+}
+
 func TestHashMap001(t *testing.T) {
 	fmt.Println(twoSum([]int{1, 2, 3, 4, 5, 6}, 7))
 }
