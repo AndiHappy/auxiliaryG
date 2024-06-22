@@ -1,6 +1,6 @@
 module github.com/AndiHappy/auxiliaryG
 
-go 1.21
+go 1.22.3
 
 require (
 	github.com/AndiHappy/helpGo v0.0.1
