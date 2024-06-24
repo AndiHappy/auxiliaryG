@@ -9,7 +9,7 @@ import (
 func Test_addTwoNumbers(t *testing.T) {
 	l1 := u.ListNode{
 		Val:  9,
-		Next: &u.ListNode{Val: 9, Next: &u.ListNode{9, nil}},
+		Next: &u.ListNode{Val: 9, Next: &u.ListNode{Val: 9}},
 	}
 	l2 := u.ListNode{
 		Val:  9,
