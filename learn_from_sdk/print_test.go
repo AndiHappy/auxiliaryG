@@ -1,4 +1,4 @@
-package auxiliaryGo
+package main
 
 import (
 	"fmt"

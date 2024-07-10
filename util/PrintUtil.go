@@ -23,3 +23,10 @@ func PrintSliceMember[T Element](slice []T) {
 		fmt.Printf("addr:%v len:%v cap:%v value:%v \n", hdr.Data, hdr.Len, hdr.Cap, slice)
 	}
 }
+
+// PrintType 输出参数的类型
+func PrintType(a any) string {
+	// 使用reflect.TypeOf获取变量的类型
+	typeOfX := reflect.TypeOf(a)
+	return typeOfX.String()
+}
