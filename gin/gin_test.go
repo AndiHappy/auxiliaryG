@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	_ "net/http/pprof"
 	"runtime"
+	"testing"
+
+	"github.com/gin-gonic/gin"
 )
 
 // 模拟的是数据库
@@ -14,7 +16,6 @@ var db = make(map[string]string)
 // 路由器
 func setupRouter() *gin.Engine {
 	// Disable Console Color
-	gin.DisableConsoleColor()
 	r := gin.Default()
 
 	// Ping test
@@ -71,10 +72,9 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-func main() {
+func TestGin(t *testing.T) {
 	runtime.SetBlockProfileRate(1)     // 开启对阻塞操作的跟踪，block
 	runtime.SetMutexProfileFraction(1) // 开启对锁调用的跟踪，mutex
-
 	r := setupRouter()
 	//go func() {
 	//	err := http.ListenAndServe("0.0.0.0:6060", nil)

@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/AndiHappy/auxiliaryG/refect_struct/custom_struct"
 	"reflect"
 	"runtime"
 	"unsafe"
+
+	"github.com/AndiHappy/auxiliaryG/refect_struct/custom_struct"
 )
 
 func read_foo(f *custom_struct.Foo) {
@@ -28,7 +29,7 @@ func change_foo(f *custom_struct.Foo) {
 	*ptrToy = nil // or *ptrToy = &Foo{} or whatever you want
 }
 
-func main() {
+func main1() {
 	f := custom_struct.NewFoo(1, 2)
 	//read_foo(&f)
 	change_foo(&f)

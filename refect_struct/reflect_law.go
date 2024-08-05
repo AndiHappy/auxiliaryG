@@ -45,7 +45,7 @@ type T struct {
 }
 
 // 1. Reflection goes from interface value to reflection object.
-func main() {
+func main2() {
 	v := reflect.ValueOf(new(float32))
 	v = v.Elem()
 	switch v.Kind() {
