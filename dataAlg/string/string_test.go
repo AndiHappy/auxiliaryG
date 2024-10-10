@@ -3,12 +3,17 @@ package string
 import (
 	"encoding/base64"
 	"fmt"
+	"github.com/AndiHappy/auxiliaryG/util"
 	"strings"
 	"testing"
 )
 
+func TestDecode(t *testing.T) {
+	fmt.Println(util.DeCodeBase64ToS("TGFvV2FuZ05pYw=="))
+}
+
 func Test_longestPalindrome(t *testing.T) {
-	var p []byte = make([]byte, 1024)
+	var p = make([]byte, 1024)
 	base64.StdEncoding.Decode(p, []byte("aHR0cHM6Ly90YWdzczAxLnBybyMvcmVnaXN0ZXI/aW52aXRlPVUwNkMwcWtj"))
 	fmt.Print(string(p))
 
