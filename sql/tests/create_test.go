@@ -1,4 +1,4 @@
-package main_test
+package tests_test
 
 import (
 	"errors"
@@ -15,7 +15,6 @@ import (
 
 func TestCreate(t *testing.T) {
 	user := *GetUser("create", Config{})
-
 	if results := DB.Create(&user); results.Error != nil {
 		t.Fatalf("errors happened when create: %v", results.Error)
 	} else if results.RowsAffected != 1 {

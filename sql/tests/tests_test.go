@@ -4,13 +4,9 @@ import (
 	"log"
 	"math/rand"
 	"os"
-	"path/filepath"
 	"time"
 
 	"gorm.io/driver/mysql"
-	"gorm.io/driver/postgres"
-	"gorm.io/driver/sqlite"
-	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 	. "gorm.io/gorm/utils/tests"
@@ -18,10 +14,7 @@ import (
 
 var DB *gorm.DB
 var (
-	mysqlDSN     = "gorm:gorm@tcp(localhost:9910)/gorm?charset=utf8&parseTime=True&loc=Local"
-	postgresDSN  = "user=gorm password=gorm dbname=gorm host=localhost port=9920 sslmode=disable TimeZone=Asia/Shanghai"
-	sqlserverDSN = "sqlserver://sa:LoremIpsum86@localhost:9930?database=master"
-	tidbDSN      = "root:@tcp(localhost:9940)/test?charset=utf8&parseTime=True&loc=Local"
+	mysqlDSN = "root:@tcp(localhost:3630)/godb?charset=utf8&parseTime=True&loc=Local"
 )
 
 func init() {
@@ -57,39 +50,12 @@ func OpenTestConnection(cfg *gorm.Config) (db *gorm.DB, err error) {
 		db, err = gorm.Open(mysql.Open(dbDSN), cfg)
 	case "postgres":
 		log.Println("testing postgres...")
-		if dbDSN == "" {
-			dbDSN = postgresDSN
-		}
-		db, err = gorm.Open(postgres.New(postgres.Config{
-			DSN:                  dbDSN,
-			PreferSimpleProtocol: true,
-		}), cfg)
 	case "sqlserver":
-		// go install github.com/microsoft/go-sqlcmd/cmd/sqlcmd@latest
-		// SQLCMDPASSWORD=LoremIpsum86 sqlcmd -U sa -S localhost:9930
-		// CREATE DATABASE gorm;
-		// GO
-		// CREATE LOGIN gorm WITH PASSWORD = 'LoremIpsum86';
-		// CREATE USER gorm FROM LOGIN gorm;
-		// ALTER SERVER ROLE sysadmin ADD MEMBER [gorm];
-		// GO
 		log.Println("testing sqlserver...")
-		if dbDSN == "" {
-			dbDSN = sqlserverDSN
-		}
-		db, err = gorm.Open(sqlserver.Open(dbDSN), cfg)
 	case "tidb":
 		log.Println("testing tidb...")
-		if dbDSN == "" {
-			dbDSN = tidbDSN
-		}
-		db, err = gorm.Open(mysql.Open(dbDSN), cfg)
 	default:
 		log.Println("testing sqlite3...")
-		db, err = gorm.Open(sqlite.Open(filepath.Join(os.TempDir(), "gorm.db")), cfg)
-		if err == nil {
-			db.Exec("PRAGMA foreign_keys = ON")
-		}
 	}
 
 	if err != nil {
